@@ -31,6 +31,7 @@
 #include <game/TaskBasic.h>
 #include <enums/VehicleType.h>
 #include <enums/HandlingProperty.h>
+#include <numbers>
 
 using std::list;
 
@@ -1498,6 +1499,12 @@ bool CStaticFunctionDefinitions::SetElementHealth(CClientEntity& Entity, float f
         {
             // Grab the model
             CClientPed& Ped = static_cast<CClientPed&>(Entity);
+
+            // If setting health to 0 for local player, clear stale damage data
+            // and set proper scripted death parameters for DoWastedCheck
+            if (fHealth == 0.0f && Ped.IsLocalPlayer() && Ped.GetHealth() > 0.0f) {
+                g_pClientGame->SetScriptedDeathData();
+            }
 
             // Set the new health
             Ped.SetHealth(Clamp(0.0f, fHealth, Ped.GetMaxHealth()));
@@ -5010,11 +5017,24 @@ bool CStaticFunctionDefinitions::GetCameraMatrix(CVector& vecPosition, CVector& 
     
     fFOV = m_pCamera->GetAccurateFOV();
     
-    if (!m_pCamera->IsInFixedMode() && fRoll == 0.0f)
+    if (fRoll == 0.0f)
     {
-        CVector rotation;
-        m_pCamera->GetRotationDegrees(rotation);
-        fRoll = rotation.fZ;
+        // Calculate roll from camera matrix when not directly available
+        CMatrix matrix;
+        m_pCamera->GetMatrix(matrix);
+        
+        CVector worldUp(0.0f, 0.0f, 1.0f);
+        CVector cameraUp = matrix.vUp;
+        CVector cameraRight = matrix.vRight;
+        
+        // Project camera up vector onto plane perpendicular to camera front
+        CVector projectedUp = cameraUp - matrix.vFront * cameraUp.DotProduct(&matrix.vFront);
+        projectedUp.Normalize();
+        
+        float cosRoll = worldUp.DotProduct(&projectedUp);
+        float sinRoll = cameraRight.DotProduct(&worldUp);
+        
+        fRoll = std::atan2(sinRoll, cosRoll) * (180.0f / std::numbers::pi_v<float>);
     }
     
     return true;
