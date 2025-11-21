@@ -15,7 +15,7 @@
 
 CGUIMemo_Impl::CGUIMemo_Impl(CGUI_Impl* pGUI, CGUIElement* pParent, const char* szEdit)
 {
-    SetManager(pGUI);
+    m_pManager = pGUI;
 
     // Get an unique identifier for CEGUI
     char szUnique[CGUI_CHAR_SIZE];

@@ -15,8 +15,6 @@ class CGUI_Impl;
 
 #include <gui/CGUI.h>
 #include <list>
-#include <unordered_map>
-#include <cstdint>
 #include <windows.h>
 
 #define CGUI_CHAR_SIZE 6
@@ -62,8 +60,6 @@ namespace CEGUI
 class CGUI_Impl : public CGUI, public CGUITabList
 {
 public:
-    static constexpr std::uint32_t kInvalidRedrawHandle = 0;
-
     CGUI_Impl(IDirect3DDevice9* pDevice);
     ~CGUI_Impl();
 
@@ -287,7 +283,6 @@ public:
     void Cleanup();
 
 private:
-    friend class CGUIElement_Impl;
     CGUIButton*      _CreateButton(CGUIElement_Impl* pParent = NULL, const char* szCaption = "");
     CGUICheckBox*    _CreateCheckBox(CGUIElement_Impl* pParent = NULL, const char* szCaption = "", bool bChecked = false);
     CGUIRadioButton* _CreateRadioButton(CGUIElement_Impl* pParent = NULL, const char* szCaption = "");
@@ -330,13 +325,7 @@ private:
     CGUIFont_Impl* m_pSansFont;
     CGUIFont_Impl* m_pUniFont;
 
-    std::list<std::uint32_t> m_RedrawQueue;
-    std::unordered_map<std::uint32_t, CGUIElement*> m_RedrawRegistry;
-    std::uint32_t                               m_nextRedrawHandle;
-
-    std::uint32_t RegisterRedrawHandle(CGUIElement_Impl* pElement);
-    void          ReleaseRedrawHandle(std::uint32_t handle);
-    CGUIElement*  ResolveRedrawHandle(std::uint32_t handle) const;
+    std::list<CGUIElement*> m_RedrawQueue;
 
     unsigned long m_ulPreviousUnique;
 

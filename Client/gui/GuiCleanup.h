@@ -11,7 +11,7 @@
 #pragma once
 
 #include <CEGUI.h>
-#include "CGUIElement_Impl.h"
+#include <gui/CGUIElement.h>
 
 inline void DestroyGuiWindowRecursive(CEGUI::Window* pWindow)
 {
@@ -28,10 +28,6 @@ inline void DestroyGuiWindowRecursive(CEGUI::Window* pWindow)
     if (void* pUserData = pWindow->getUserData())
     {
         CGUIElement* pElement = reinterpret_cast<CGUIElement*>(pUserData);
-        if (CGUIElement_Impl* pImpl = dynamic_cast<CGUIElement_Impl*>(pElement))
-        {
-            pImpl->UnregisterFromRedrawQueue();
-        }
         pWindow->setUserData(nullptr);
         delete pElement;
     }

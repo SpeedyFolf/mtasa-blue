@@ -15,7 +15,7 @@
 
 CGUIProgressBar_Impl::CGUIProgressBar_Impl(CGUI_Impl* pGUI, CGUIElement* pParent)
 {
-    SetManager(pGUI);
+    m_pManager = pGUI;
 
     // Get an unique identifier for CEGUI (gah, there's gotta be an another way)
     char szUnique[CGUI_CHAR_SIZE];

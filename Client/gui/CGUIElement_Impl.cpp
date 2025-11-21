@@ -10,7 +10,6 @@
  *****************************************************************************/
 
 #include "StdInc.h"
-#include "CGUI_Impl.h"
 
 // Define no-drawing zones, a.k.a. the inside borders in the FrameWindow of BlueLook in pixels
 // If something is drawn inside of these areas, the theme border is drawn on top of it
@@ -25,65 +24,20 @@ CGUIElement_Impl::CGUIElement_Impl()
     m_pWindow = NULL;
     m_pParent = NULL;
     m_pManager = NULL;
-    m_redrawHandle = CGUI_Impl::kInvalidRedrawHandle;
-}
-
-void CGUIElement_Impl::SetManager(CGUI_Impl* pManager)
-{
-    if (m_pManager == pManager)
-        return;
-
-    if (m_pManager && m_redrawHandle != CGUI_Impl::kInvalidRedrawHandle)
-    {
-        m_pManager->ReleaseRedrawHandle(m_redrawHandle);
-        m_redrawHandle = CGUI_Impl::kInvalidRedrawHandle;
-    }
-
-    m_pManager = pManager;
-
-    if (m_pManager)
-    {
-        m_redrawHandle = m_pManager->RegisterRedrawHandle(this);
-    }
-}
-
-void CGUIElement_Impl::UnregisterFromRedrawQueue()
-{
-    if (m_pManager && m_redrawHandle != CGUI_Impl::kInvalidRedrawHandle)
-    {
-        m_pManager->RemoveFromRedrawQueue(this);
-    }
 }
 
 void CGUIElement_Impl::DestroyElement()
 {
-    UnregisterFromRedrawQueue();
+    m_pManager->RemoveFromRedrawQueue(reinterpret_cast<CGUIElement*>((m_pWindow)->getUserData()));
 
-    if (m_pWindow)
-    {
-        // Clear pointer back to this
-        m_pWindow->setUserData(NULL);
+    // Clear pointer back to this
+    m_pWindow->setUserData(NULL);
 
-        if (m_pManager)
-        {
-            // Destroy the control
-            m_pManager->GetWindowManager()->destroyWindow(m_pWindow);
-        }
-        m_pWindow = NULL;
-    }
+    // Destroy the control
+    m_pManager->GetWindowManager()->destroyWindow(m_pWindow);
 
     // Destroy the properties list
     EmptyProperties();
-
-    if (m_pManager && m_redrawHandle != CGUI_Impl::kInvalidRedrawHandle)
-    {
-        m_pManager->ReleaseRedrawHandle(m_redrawHandle);
-    }
-
-    m_redrawHandle = CGUI_Impl::kInvalidRedrawHandle;
-    m_pParent = NULL;
-    m_pData = NULL;
-    m_pManager = NULL;
 }
 
 void CGUIElement_Impl::SetVisible(bool bVisible)
