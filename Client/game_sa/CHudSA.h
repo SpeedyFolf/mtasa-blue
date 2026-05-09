@@ -54,6 +54,8 @@
 
 #define CODE_ShowMoney          0x58F47D
 #define CODE_ShowRadarAltimeter 0x58A5A6
+#define CODE_ShowRadarHorizon   0x58A65C
+#define CODE_ShowRadarDisc      0x58A66F
 
 #define VAR_CTheScripts_bDrawCrossHair 0xA44490
 #define VAR_RSGlobal                   0xC17040

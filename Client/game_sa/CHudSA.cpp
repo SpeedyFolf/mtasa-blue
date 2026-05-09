@@ -133,6 +133,8 @@ void CHudSA::InitComponentList()
         {1, HUD_RADAR_MAP, 1, FUNC_CRadar_DrawRadarMap, 1, 0xCC, 0xC3},
         {1, HUD_RADAR_BLIPS, 1, FUNC_CRadar_DrawBlips, 1, 0xCC, 0xC3},
         {1, HUD_RADAR_ALTIMETER, 1, CODE_ShowRadarAltimeter, 2, 0xCC, 0xEB30},
+        {1, HUD_RADAR_HORIZON, 1, CODE_ShowRadarHorizon, 2, 0xCC, 0xEB18},
+        {1, HUD_RADAR_DISC, 1, CODE_ShowRadarDisc, 2, 0xCC, 0xEB1B},
         {1, HUD_CLOCK, 0, VAR_DisableClock, 1, 1, 0},
         {1, HUD_RADIO, 1, FUNC_DrawRadioName, 1, 0xCC, 0xC3},
         {1, HUD_WANTED, 1, FUNC_DrawWantedLevel, 1, 0xCC, 0xC3},

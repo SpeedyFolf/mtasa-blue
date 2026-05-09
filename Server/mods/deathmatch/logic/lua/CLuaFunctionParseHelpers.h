@@ -61,6 +61,8 @@ enum eHudComponent
     HUD_RADAR_MAP,
     HUD_RADAR_BLIPS,
     HUD_RADAR_ALTIMETER,
+    HUD_RADAR_HORIZON,
+    HUD_RADAR_DISC,
 };
 DECLARE_ENUM(eHudComponent);
 

@@ -656,7 +656,8 @@ bool CLuaPlayerDefs::SetPlayerHudComponentProperty(eHudComponent component, eHud
                                                    std::variant<CVector2D, float, bool, std::string> value)
 {
     if (component == HUD_ALL || component == HUD_CROSSHAIR || component == HUD_VITAL_STATS || component == HUD_HELP_TEXT || component == HUD_RADAR ||
-        component == HUD_RADAR_MAP || component == HUD_RADAR_BLIPS || component == HUD_RADAR_ALTIMETER)
+        component == HUD_RADAR_MAP || component == HUD_RADAR_BLIPS || component == HUD_RADAR_ALTIMETER || component == HUD_RADAR_HORIZON ||
+        component == HUD_RADAR_DISC)
         return false;
 
     CHud* hud = g_pGame->GetHud();
