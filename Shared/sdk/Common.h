@@ -106,7 +106,7 @@ private:
 namespace FPSLimits
 {
     constexpr std::uint16_t FPS_MAX = std::numeric_limits<std::uint16_t>::max();  // Maximum allowed frame rate limit
-    constexpr std::uint16_t FPS_MIN = 25;                                         // Minimum allowed frame rate limit
+    constexpr std::uint16_t FPS_MIN = 1;                                          // Minimum allowed frame rate limit
     constexpr std::uint16_t FPS_UNLIMITED = 0;                                    // Unlimited frame rate (no limit)
 
     // Takes a FPS value and
