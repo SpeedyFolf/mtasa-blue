@@ -85,7 +85,7 @@ const SDialogItemInfo g_CrashedDialogItems[] = {
     {IDC_CRASH_HEAD, 0, _td("Crash information")},
     {IDC_SEND_DUMP_CHECK, 0, _td("Tick the check box to send this crash info to MTA devs using the 'internet'")},
     {IDC_SEND_DESC_STATIC, 0, _td("Doing so will increase the chance of this crash being fixed.")},
-    {IDC_RESTART_QUESTION_STATIC, 1, _td("Do you want to restart MTA: San Andreas ?")},
+    {IDC_RESTART_QUESTION_STATIC, 1, _td("Do you want to restart MTA: San Andreas?")},
     {IDCANCEL, 0, dialogStringsNo},
     {IDOK, 0, dialogStringsYes},
     {-1},

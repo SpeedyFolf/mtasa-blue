@@ -92,7 +92,7 @@ BEGIN
     CTEXT           "Doing so will increase the chance of this crash being fixed.",IDC_SEND_DESC_STATIC,18,410,464,14
     GROUPBOX        "",IDC_CHECKBOX_GROUP,12,382,476,46
     GROUPBOX        "Crash information",IDC_CRASH_HEAD,7,7,486,368,BS_CENTER
-    CTEXT           "Do you want to restart MTA: San Andreas ?",IDC_RESTART_QUESTION_STATIC,20,442,460,10
+    CTEXT           "Do you want to restart MTA: San Andreas?",IDC_RESTART_QUESTION_STATIC,20,442,460,10
     EDITTEXT        IDC_CRASH_INFO_EDIT,15,22,470,345,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
 END
 

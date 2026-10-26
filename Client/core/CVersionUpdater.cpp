@@ -1629,7 +1629,7 @@ void CVersionUpdater::_DialogSidegradeDownloadQuestion()
     GetQuestionBox().Reset();
     GetQuestionBox().SetTitle(SString(_("MTA:SA %s required"), *m_strSidegradeVersion));
     GetQuestionBox().SetMessage(SString(_("An updated version of MTA:SA %s is required to join the selected server.\n\n"
-                                          "Do you want to download and install MTA:SA %s ?"),
+                                          "Do you want to download and install MTA:SA %s?"),
                                         *m_strSidegradeVersion, *m_strSidegradeVersion));
     GetQuestionBox().SetButton(0, _("No"));
     GetQuestionBox().SetButton(1, _("Yes"));
@@ -1648,7 +1648,7 @@ void CVersionUpdater::_DialogSidegradeLaunchQuestion()
 {
     GetQuestionBox().Reset();
     GetQuestionBox().SetTitle(SString(_("MTA:SA %s required"), *m_strSidegradeVersion));
-    GetQuestionBox().SetMessage(SString(_("Do you want to launch MTA:SA %s and connect to this server ?"), *m_strSidegradeVersion));
+    GetQuestionBox().SetMessage(SString(_("Do you want to launch MTA:SA %s and connect to this server?"), *m_strSidegradeVersion));
     GetQuestionBox().SetButton(0, _("No"));
     GetQuestionBox().SetButton(1, _("Yes"));
     GetQuestionBox().Show();

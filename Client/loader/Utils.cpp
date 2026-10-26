@@ -1860,7 +1860,7 @@ void MaybeShowCopySettingsDialog()
     SString strMessage;
     strMessage += SString(_("New installation of %s detected.\n"
                             "\n"
-                            "Do you want to copy your settings from %s ?"),
+                            "Do you want to copy your settings from %s?"),
                           *strCurrentVersion, *strPreviousVersion);
     int iResponse = MessageBoxUTF8(NULL, strMessage, "MTA: San Andreas", MB_YESNO | MB_ICONQUESTION | MB_TOPMOST);
     if (iResponse != IDYES)

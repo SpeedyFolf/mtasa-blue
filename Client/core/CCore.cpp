@@ -786,7 +786,7 @@ void CCore::RemoveMessageBox(bool bNextFrame)
 }
 
 //
-// Show message box with possibility of on-line help
+// Show message box with possibility of online help
 //
 void CCore::ShowErrorMessageBox(const SString& strTitle, SString strMessage, const SString& strTroubleLink)
 {
@@ -806,7 +806,7 @@ void CCore::ShowErrorMessageBox(const SString& strTitle, SString strMessage, con
 }
 
 //
-// Show message box with possibility of on-line help
+// Show message box with possibility of online help
 //  + with net error code appended to message and trouble link
 //
 void CCore::ShowNetErrorMessageBox(const SString& strTitle, SString strMessage, SString strTroubleLink, bool bLinkRequiresErrorCode)

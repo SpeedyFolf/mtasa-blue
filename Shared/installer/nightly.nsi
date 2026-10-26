@@ -1862,14 +1862,14 @@ FunctionEnd
 LangString INST_MTA_CONFLICT ${LANG_ENGLISH}    "A different major version of MTA ($1) already exists at that path.$\n$\n\
             MTA is designed for major versions to be installed in different paths.$\n \
             Are you sure you want to overwrite MTA $1 at \
-            $INSTDIR ?"
+            $INSTDIR?"
 LangString INST_GTA_CONFLICT ${LANG_ENGLISH}    "MTA cannot be installed into the same directory as GTA:SA.$\n$\n\
             Do you want to use the default install directory$\n\
-            $DEFAULT_INSTDIR ?"
+            $DEFAULT_INSTDIR?"
 LangString INST_GTA_ERROR1 ${LANG_ENGLISH} "The selected directory does not exist.$\n$\n\
             Please select the GTA:SA install directory"
 LangString INST_GTA_ERROR2 ${LANG_ENGLISH} "Could not find GTA:SA installed at $GTA_DIR $\n$\n\
-            Are you sure you want to continue ?"
+            Are you sure you want to continue?"
 
 Function "CustomDirectoryPageLeave"
     ${LogText} "+Function begin - CustomDirectoryPageLeave"

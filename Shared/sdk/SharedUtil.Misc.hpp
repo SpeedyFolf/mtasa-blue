@@ -1683,7 +1683,7 @@ bool SharedUtil::ProcessPendingBrowseToSolution()
     {
         if (!strMessageBoxMessage.empty())
             strMessageBoxMessage += "\n\n\n";
-        strMessageBoxMessage += _("Do you want to see some on-line help about this problem ?");
+        strMessageBoxMessage += _("Do you want to see some online help about this problem?");
         if (IDYES != MessageBoxUTF8(NULL, strMessageBoxMessage, strTitle, MB_YESNO | MB_TOPMOST | (iFlags & ICON_MASK_VALUE)))
             return false;
     }
